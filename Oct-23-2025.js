@@ -28,4 +28,3 @@ function arrayProduct(nums){
 }
 
 console.log(arrayProduct([1, 2, 23, 0]));
-console.log([1, 2, 4, 7, 0]);
