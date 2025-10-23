@@ -1,7 +1,7 @@
 /*
     Difficulty: Hard
     Date: October 23, 2025
-    
+
     Given an array of integers, return a new array such that each element 
     at index i of the new array is the product of all the numbers in the original array except the one at i.
 
@@ -10,18 +10,22 @@
 */
 
 function arrayProduct(nums){
-    const productArray = nums.map((num, index) => {
-        let product = 1;
-        for(let i = 0; i < nums.length; i++){
-            if(index === i){
-                continue;
-            }
-            product *= nums[i];
-        }
-        return product;
-    });
+    let productArray = [];
+
+    let first = 1;
+    for(let i = 0; i < nums.length; i++){
+        productArray.push(first);
+        first *= nums[i];
+    }
+
+    let second = 1;
+    for(let i = nums.length - 1; i >= 0; i--){
+        productArray[i] *= second;
+        second *= nums[i];
+    }
 
     return productArray;
 }
 
-console.log(arrayProduct([12, 11, 4, 7, 2]));
+console.log(arrayProduct([1, 2, 23, 0]));
+console.log([1, 2, 4, 7, 0]);
