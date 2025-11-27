@@ -26,14 +26,12 @@ function secondLargest(root){
     secondLargest(root.right);
 
     //check node
-    if(root.data > sLargest){
-        if(root.data > largest && root.data !== largest){
-            sLargest = largest;
-            largest = root.data;
-        }
-        else if(root.data !== largest){
-            sLargest = root.data;
-        }
+    if(root.data > largest){
+        sLargest = largest;
+        largest = root.data;
+    }
+    else if(root.data > sLargest && root.data < largest){
+        sLargest = root.data
     }
 }
 
